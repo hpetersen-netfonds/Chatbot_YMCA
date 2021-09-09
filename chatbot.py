@@ -56,7 +56,7 @@ def get_response(intent_list, intent_json):
 
 
 def run_chatbot():
-    print('Chatbot runs')
+    print('Hi, I am the Allu. You can aks me anything about YMCA. Please ask a question.')
     while True:
         message = input("")
         ints = predict_class(message)

@@ -67,7 +67,5 @@ def train():
     model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
     chat_model = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
     model.save('tempFiles\\chatbot_model.h5', chat_model)
-    print('Done')
+    print('Done Training')
 
-
-train()
