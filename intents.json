@@ -1,0 +1,17 @@
+{"intents": [
+  {
+    "tag": "grettings",
+    "patterns": ["hello", "hi", "good morning"],
+    "responses": ["Hello, how can I help?", "Hi, how can I help?"]
+  },
+  {
+    "tag": "buy_location",
+    "patterns": ["where", "how to get", "purchase"],
+    "responses": ["YMCA is available online here: www.urlisfake.com or though many shops like amazone.", "You can get your hands on the YMCA here  www.urlisfake.com or though many shops like amazone."]
+  },
+  {
+    "tag": "price",
+    "patterns": ["price", "cost"],
+    "responses": ["Our Product can be purchased for 49,99€.", "Currently YMCA cost 49,99€."]
+  }
+]}
