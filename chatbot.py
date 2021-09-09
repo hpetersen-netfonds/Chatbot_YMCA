@@ -62,6 +62,3 @@ def run_chatbot():
         ints = predict_class(message)
         res = get_response(ints, intents)
         print(res)
-
-
-run_chatbot()
