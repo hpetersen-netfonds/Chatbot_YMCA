@@ -1,25 +1,31 @@
 {"intents": [
   {
     "tag": "repeatPlease",
-    "patterns": ["hello", "hi", "good morning"],
+    "patterns": ["oh no"],
     "responses": ["Sorry, I don't have a fitting answer.", "Please ask a different Question.",
       "Sorry, i can not help you with this.", "Please phrase this in different way."]
   },
   {
     "tag": "buy_location",
-    "patterns": ["where", "how to get", "purchase"],
-    "responses": ["YMCA is available online here: www.urlisfake.com or though many shops like amazone.",
-      "You can get your hands on the YMCA here  www.urlisfake.com or though many shops like amazone."]
+    "patterns": ["where", "how to get", "how can I purchase", "where can i get my hands on"],
+    "responses": ["YMCA is available online here: www.urlisfake.com or though many shops like Amazone.",
+      "You can get your hands on the YMCA here  www.urlisfake.com or though many shops like Amazone."]
   },
   {
     "tag": "price",
-    "patterns": ["price", "cost"],
-    "responses": ["Our Product can be purchased for 49,99€.", "Currently YMCA cost 49,99€."]
+    "patterns": ["price", "cost", "what does it cost", "for how much can i purchase"],
+    "responses": ["Our Product can be purchased for 49,99 Euro.", "Currently YMCA cost 49,99 Euro."]
   },
   {
     "tag": "features",
-    "patterns": ["what", "what is it"],
+    "patterns": ["what does YMCA do", "what is it" ],
     "responses": ["YMCA combines the Security of a Tinfoil Hat with endless connectivity and mobility.",
-      "YMCA is the only Tinfoil Hat with integrated WLAN Hotspot on the market."]
+      "YMCA is the only Tinfoil Hat with integrated WLAN Hotspot on the market.",
+    "YMCA combines Security, Mobility and Freedom by being a protective Tinfoil Hat with a integrated WLAN Hotspot"]
+  },
+  {
+    "tag": "goodbye",
+    "patterns": ["bye", "goodbye", "ciao"],
+    "responses": ["I hope I was helpful.", "See you next Time.", "Goodbye, enjoy your YMCA!"]
   }
 ]}
