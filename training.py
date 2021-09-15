@@ -28,7 +28,7 @@ def train():
                 classes.append(intent['tag'])
 
     # lemmatize (break down words to their core)
-    words = [lemmatizer.lemmatize(word) for word in words if word not in ignore_letters]
+    words = [lemmatizer.lemmatize(word.lower()) for word in words if word not in ignore_letters]
 
     # remove duplicates and turn back into a list
     words = sorted(set(words))
@@ -61,6 +61,7 @@ def train():
     train_y = list(training[:, 1])
 
     # tensorflow black magic
+    # setting up the model
     model = Sequential()
     model.add(Dense(128, input_shape=(len(train_x[0]),), activation='relu'))
     model.add(Dropout(0.5))
@@ -68,11 +69,12 @@ def train():
     model.add(Dropout(0.5))
     model.add(Dense(len(train_y[0]), activation='softmax'))
 
+    # assign a optimizer
     sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
+    # compile
     model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
+    # train the model with our training data over 200 epochs
     chat_model = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
+    # save the model for later use
     model.save('tempFiles\\chatbot_model.h5', chat_model)
     print('Done Training')
-
-
-train()
