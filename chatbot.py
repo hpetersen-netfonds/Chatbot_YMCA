@@ -56,7 +56,7 @@ def get_response(intent_list, intent_json):
     tag = intent_list[0]['intent']
     list_of_intents = intent_json['intents']
     # if probability of the most likely intent is below 50% we set it to repeatPlease
-    if float(intent_list[0]['probability']) < 0.5:
+    if float(intent_list[0]['probability']) < 0.9:
         tag = 'repeatPlease'
     # get a random response of the selected tag
     result = {'response': '', 'action': 0}

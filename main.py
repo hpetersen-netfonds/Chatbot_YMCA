@@ -8,11 +8,6 @@ try:
 except LookupError:
     nltk.download('punkt')
 
-try:
-    nltk.data.find('stem/wordnet')
-except LookupError:
-    nltk.download('wordnet')
-
 training.train()
 
 chatbot.run_chatbot()

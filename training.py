@@ -7,7 +7,10 @@ import nltk
 from nltk.stem import WordNetLemmatizer
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Activation, Dropout
+from tensorflow.keras.callbacks import TensorBoard
 from tensorflow.keras.optimizers import SGD
+
+import datetime
 
 
 def train():
@@ -70,11 +73,14 @@ def train():
     model.add(Dense(len(train_y[0]), activation='softmax'))
 
     # assign a optimizer
-    sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
+    sgd = SGD(learning_rate=0.01, decay=1e-6, momentum=0.9, nesterov=True)
     # compile
     model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
+
+    log_dir = "tempFiles/logs/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    tensorboard_callback = TensorBoard(log_dir=log_dir, histogram_freq=1)
     # train the model with our training data over 200 epochs
-    chat_model = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
+    chat_model = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1, callbacks=[tensorboard_callback])
     # save the model for later use
     model.save('tempFiles\\chatbot_model.h5', chat_model)
     print('Done Training')
