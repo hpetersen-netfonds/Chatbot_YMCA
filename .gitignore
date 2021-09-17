@@ -253,3 +253,5 @@ cython_debug/
 #ProjektSpecivc
 *.pkl
 *.h5
+
+tempFiles/logs/.*
