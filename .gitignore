@@ -254,4 +254,4 @@ cython_debug/
 *.pkl
 *.h5
 
-tempFiles/logs/.*
+tempFiles/logs/
